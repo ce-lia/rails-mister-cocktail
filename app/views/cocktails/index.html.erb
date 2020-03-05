@@ -1,0 +1,15 @@
+<h1>Cocktails</h1>
+
+<div class="row row-cols-1 row-cols-md-3">
+  <% @cocktails.each do |cocktail| %>
+    <div class="col mb-4">
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?<%=cocktail.name%>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
+<p><%= link_to "Add a cocktail", new_cocktail_path %></p>
