@@ -1,0 +1,9 @@
+ .funky-button {
+    color:$orange;
+    text-shadow: 1px 4px #ff0000;
+    text-decoration: none;
+    &:hover {
+    color:$beige;
+    text-decoration: none;
+    }
+  }

@@ -1,20 +1,22 @@
-<h1><%=@cocktail.name%></h1>
-<div class="row row-cols-1 row-cols-md-2">
-  <div class="col mb-2">
-    <ul>
-      <% @cocktail.doses.each do | dose|%>
-      <li><%= dose.description %> of <%= dose.ingredient.name%>
-        <%= link_to "Delete dose", dose_path(dose), method: :delete %>
-      </li>
+<%=render './shared/navbar'%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key%>');">
+  <div class="container row">
+    <div class="col-md-8">
+      <h1><%=@cocktail.name%></h1>
+      <ul>
+      <% @cocktail.doses.each do |dose|%>
+      <li><%=dose.description%> of <%=dose.ingredient.name%></li>
       <% end %>
-    </ul>
-    <p><%= link_to "Back to cocktails", cocktails_path %></p>
-  </div>
-  <div class="col mb-1">
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      </ul>
+      <%= link_to "BACK TO ALL COCKTAILS", cocktails_path, class:'funky-button' %>
+    </div>
+    <div class="col-md-4">
+      <h2>Add an ingredient</h2>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
       <%= f.association :ingredient %>
-      <%= f.button :submit %>
-    <% end %>
+      <%= f.button :submit, class:'funky-button' %>
+      <% end %>
+    </div>
   </div>
 </div>

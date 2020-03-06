@@ -1,8 +1,12 @@
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%=render './shared/navbar'%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.cedp-edu.com/wp-content/uploads/2019/02/Certificate-Course-in-Bartending-Mixology.jpg);">
+  <div class="container">
+    <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <%= f.input :name %>
-    <%= f.button :submit %>
-<% end %>
-
-<p><%= link_to "Back", cocktails_path %></p>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class:'funky-button' %>
+    <% end %>
+  </div>
+</div>
