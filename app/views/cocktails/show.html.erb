@@ -4,7 +4,7 @@
       <h1><%=@cocktail.name%></h1>
       <ul>
       <% @cocktail.doses.each do |dose|%>
-      <li><%=dose.description%> of <%=dose.ingredient.name%></li>
+      <li><%=dose.description%> of <%=dose.ingredient.name%> <%=link_to "delete"%></li>
       <% end %>
       </ul>
       <%= link_to "BACK TO ALL COCKTAILS", cocktails_path, class:'funky-button' %>
